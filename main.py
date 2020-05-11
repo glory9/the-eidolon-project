@@ -40,24 +40,25 @@ def submit():
             arr.append(point['story'])
             rs.append(arr)
 
-        return render_template('ind.html', title0=rs[0][0], link0=rs[0][1], story0=rs[0][2],
-                               link1=rs[1][1], title1=rs[1][0], story1=rs[1][2],
-                               title2=rs[2][0], link2=rs[2][1], story2=rs[2][2],
-                               title3=rs[3][0], link3=rs[0][1], story3=rs[0][2],
-                               title4=rs[4][0], link4=rs[4][1], story4=rs[4][2],
-                               title5=rs[5][0], link5=rs[5][1], story5=rs[5][2],
+        c = len(rs) - 1
+        return render_template('ind.html', title0=rs[c][0], link0=rs[c][1], story0=rs[c][2],
+                               title1=rs[c - 1][0], link1=rs[c - 1][1], story1=rs[c - 1][2],
+                               title2=rs[c - 2][0], link2=rs[c - 2][1], story2=rs[c - 2][2],
+                               title3=rs[c - 3][0], link3=rs[c - 3][1], story3=rs[c - 3][2],
+                               title4=rs[c - 4][0], link4=rs[c - 4][1], story4=rs[c - 4][2],
+                               title5=rs[c - 5][0], link5=rs[c - 5][1], story5=rs[c - 5][2],
                                )
 
 
 def scrape():
     scrape_with_crochet(baseURL=baseURL)  # Passing that URL to our Scraping Function
 
-    time.sleep(15)  # Pause the function while the scrapy spider is running
+    time.sleep(10)  # Pause the function while the scrapy spider is running
 
     # final = jsonify(output_data)
 
 
-    passwd = "glory1999"  # input("Enter mongoDB password: ")
+    passwd = input("Enter mongoDB password: ")
     db = MongoClient("mongodb+srv://ayglory:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
                      "Writes=true&w=majority".format(passwd))
     collection = db["eidolonDB"]["questions"]
