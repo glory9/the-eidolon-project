@@ -15,9 +15,10 @@ class EidolonspiderPipeline:
 
 # class MongoPipeline:
 #     def __init__(self):
-#         passwd = "glory1999"  # input("Enter mongoDB password: ")
-#         db = MongoClient("mongodb+srv://ayglory:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
-#                          "Writes=true&w=majority".format(passwd))
+#         mongoUser = input("Enter mongoDB user: ")
+#         passwd = input("Enter mongoDB password: ")
+#         db = MongoClient("mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
+#                          "Writes=true&w=majority".format(mongoUser, passwd))
 #         self.collection = db["eidolonDB"]["questions"]
 #
 #     def process_item(self, item, spider):
@@ -43,10 +44,11 @@ class MongoPipeline:
 
     @classmethod
     def from_crawler(cls, crawler):
-        passwd = "glory1999"  # input("Enter mongoDB password: ")
+        mongoUser = input("Enter mongoDB user: ")
+        passwd = input("Enter mongoDB password: ")
         return cls(
-            mongo_uri="mongodb+srv://ayglory:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
-                      "Writes=true&w=majority".format(passwd),
+            mongo_uri="mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
+                     "Writes=true&w=majority".format(mongoUser, passwd),
             mongo_db="eidolonDB"
         )
 
