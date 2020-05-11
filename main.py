@@ -28,12 +28,9 @@ def submit():
         global baseURL
         baseURL = "https://stackoverflow.com/questions"
         info = scrape()
+        
         rs = list()
-        count = 0
         for point in info:
-            if count > 6:
-                break
-                count += 1
             arr = list()
             arr.append(point['name'])
             arr.append(point['url'])
@@ -54,13 +51,11 @@ def scrape():
     scrape_with_crochet(baseURL=baseURL)  # Passing that URL to our Scraping Function
 
     time.sleep(10)  # Pause the function while the scrapy spider is running
-
-    # final = jsonify(output_data)
-
-
+    
+    mongoUser = input("Enter mongoDB user: ")
     passwd = input("Enter mongoDB password: ")
-    db = MongoClient("mongodb+srv://ayglory:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
-                     "Writes=true&w=majority".format(passwd))
+    db = MongoClient("mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
+                     "Writes=true&w=majority".format(mongoUser, passwd))
     collection = db["eidolonDB"]["questions"]
 
     for data in output_data:
