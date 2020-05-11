@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import crochet
 from flask import Flask , render_template, jsonify, request, redirect, url_for
 from scrapy import signals
@@ -57,8 +59,8 @@ def scrape():
 
     time.sleep(5)  # Pause the function while the scrapy spider is running
 
-    mongo_user = input("Enter mongo user: ")
-    passwd = input("Enter mongoDB password: ")
+    mongo_user = "ayglory"  # input("Enter mongo user: ")
+    passwd = "glory1999"    # input("Enter mongoDB password: ")
     db = MongoClient("mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
                      "Writes=true&w=majority".format(mongo_user, passwd))
     collection = db["eidolonDB"]["questions"]

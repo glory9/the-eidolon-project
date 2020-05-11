@@ -4,10 +4,9 @@ from scrapy.selector import Selector
 from random import sample
 
 
-
 class EidolonRealSpider(Spider):
     name = "eidolonSpider"
-    start_urls = ["https://stackoverflow.com/questions"]
+    # start_urls = ["https://stackoverflow.com/questions"]
     myBaseUrl = ''
     start_urls = []
 
