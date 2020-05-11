@@ -43,7 +43,7 @@ def submit():
         c = len(rs) - 1
 
         return render_template('index.html', title0=rs[c][0], link0=rs[c][1], story0=rs[c][2],
-                               link1=rs[c - 1][1], title1=rs[c - 1][0], story1=rs[c - 1][2],
+                               title1=rs[c - 1][0], link1=rs[c - 1][1], story1=rs[c - 1][2],
                                title2=rs[c - 2][0], link2=rs[c - 2][1], story2=rs[c - 2][2],
                                title3=rs[c - 3][0], link3=rs[c - 3][1], story3=rs[c - 3][2],
                                title4=rs[c - 4][0], link4=rs[c - 4][1], story4=rs[c - 4][2],
@@ -58,7 +58,6 @@ def scrape():
     scrape_with_crochet(baseURL=baseURL)  # Passing that URL to our Scraping Function
 
     time.sleep(5)  # Pause the function while the scrapy spider is running
-
     mongo_user = "ayglory"  # input("Enter mongo user: ")
     passwd = "glory1999"    # input("Enter mongoDB password: ")
     db = MongoClient("mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
