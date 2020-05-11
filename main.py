@@ -50,7 +50,7 @@ def submit():
 def scrape():
     scrape_with_crochet(baseURL=baseURL)  # Passing that URL to our Scraping Function
 
-    time.sleep(10)  # Pause the function while the scrapy spider is running
+    time.sleep(5)  # Pause the function while the scrapy spider is running
     
     mongoUser = input("Enter mongoDB user: ")
     passwd = input("Enter mongoDB password: ")
