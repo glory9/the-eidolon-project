@@ -15,10 +15,10 @@ output_data = []
 crawl_runner = CrawlerRunner()
 
 
-# By Deafult Flask will come into this when we run the file
+# By Default Flask will come into this when we run the file
 @app.route('/')
 def index():
-    return render_template("ind.html")  # Returns index.html file in templates folder.
+    return render_template("index.html")  # Returns index.html file in templates folder.
 
 
 # After clicking the Submit Button FLASK will come into this
@@ -28,9 +28,10 @@ def submit():
         global baseURL
         baseURL = "https://stackoverflow.com/questions"
         info = scrape()
-        
         rs = list()
+
         for point in info:
+
             arr = list()
             arr.append(point['name'])
             arr.append(point['url'])
@@ -38,12 +39,16 @@ def submit():
             rs.append(arr)
 
         c = len(rs) - 1
-        return render_template('ind.html', title0=rs[c][0], link0=rs[c][1], story0=rs[c][2],
+
+        return render_template('index.html', title0=rs[c][0], link0=rs[c][1], story0=rs[c][2],
                                title1=rs[c - 1][0], link1=rs[c - 1][1], story1=rs[c - 1][2],
                                title2=rs[c - 2][0], link2=rs[c - 2][1], story2=rs[c - 2][2],
                                title3=rs[c - 3][0], link3=rs[c - 3][1], story3=rs[c - 3][2],
                                title4=rs[c - 4][0], link4=rs[c - 4][1], story4=rs[c - 4][2],
                                title5=rs[c - 5][0], link5=rs[c - 5][1], story5=rs[c - 5][2],
+                               title6=rs[c - 6][0], link6=rs[c - 6][1], story6=rs[c - 6][2],
+                               title7=rs[c - 7][0], link7=rs[c - 7][1], story7=rs[c - 7][2],
+                               divider=" - "
                                )
 
 
@@ -51,11 +56,11 @@ def scrape():
     scrape_with_crochet(baseURL=baseURL)  # Passing that URL to our Scraping Function
 
     time.sleep(5)  # Pause the function while the scrapy spider is running
-    
-    mongoUser = input("Enter mongoDB user: ")
+
+    mongo_user = input("Enter mongoDB user: ")
     passwd = input("Enter mongoDB password: ")
     db = MongoClient("mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
-                     "Writes=true&w=majority".format(mongoUser, passwd))
+                     "Writes=true&w=majority".format(mongo_user, passwd))
     collection = db["eidolonDB"]["questions"]
 
     for data in output_data:
