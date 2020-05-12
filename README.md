@@ -29,3 +29,4 @@ I learned so many skills in under 24 hours! This is actually my first full-stack
 
 # What's next for Eidolon
 - Add new features like a login system.
+- Build a content aggregator on top of Eidolon
