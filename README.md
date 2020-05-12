@@ -23,8 +23,9 @@ Built with Pycharm IDE. Pycharm helped with managing virtual environments.
 - Flask
 - MongoDB
 - Scrapy
-I learned so many skills in under 24 hours! For the record, I've never built a real web app before - not even used flask before!
+- GCP App engine
+- Custom domain hosting
+I learned so many skills in under 24 hours! This is actually my first full-stack web app!
 
 # What's next for Eidolon
-- Host in the cloud.
 - Add new features like a login system.
