@@ -1,5 +1,5 @@
 # project-eidolon
-Eidolon is a fun project that scrapes random questions from stackoverlow, saves them to a mongoDB database and then displays them on a frontend/webpage. Eidolon is hosted on the Google cloud platform.
+Eidolon is a web app that scrapes random questions from stackoverlow, saves them to a mongoDB database and then displays them on a frontend/webpage - all at the click of one button! Eidolon is deployed on the Google cloud platform.
 
 # Inspiration
 A friend asked me to build an app that will study for them while they did something else. So I tried to build something that can get you some resources before you begin studying.
