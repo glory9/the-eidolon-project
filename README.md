@@ -1,5 +1,5 @@
 # project-eidolon
-Eidolon is a fun project that scrapes random questions from stackoverlow, saves them to a mongoDB database and then displays it on a website.
+Eidolon is a fun project that scrapes random questions from stackoverlow, saves them to a mongoDB database and then displays them on a frontend/webpage.
 
 # Inspiration
 A friend asked me to build an app that will study for them while they did something else. So I tried to build something that can get you some resources before you begin studying.
