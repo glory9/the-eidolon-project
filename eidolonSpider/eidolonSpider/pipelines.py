@@ -44,8 +44,8 @@ class MongoPipeline:
 
     @classmethod
     def from_crawler(cls, crawler):
-        mongo_user = "ayglory"  # input("Enter mongo user: ")
-        passwd = "glory1999"  # input("Enter mongoDB password: ")
+        mongo_user = input("Enter mongo user: ")
+        passwd = input("Enter mongoDB password: ")
         return cls(
             mongo_uri="mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
                      "Writes=true&w=majority".format(mongo_user, passwd),
