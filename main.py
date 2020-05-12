@@ -58,8 +58,8 @@ def scrape():
     scrape_with_crochet(baseURL=baseURL)  # Passing that URL to our Scraping Function
 
     time.sleep(5)  # Pause the function while the scrapy spider is running
-    mongo_user = "ayglory"  # input("Enter mongo user: ")
-    passwd = "glory1999"    # input("Enter mongoDB password: ")
+    mongo_user = input("Enter mongo user: ")
+    passwd = input("Enter mongoDB password: ")
     db = MongoClient("mongodb+srv://{}:{}@cluster0-jv8w4.gcp.mongodb.net/test?retry"
                      "Writes=true&w=majority".format(mongo_user, passwd))
     collection = db["eidolonDB"]["questions"]
@@ -72,12 +72,14 @@ def scrape():
                 break
         if good_item:
             collection.insert_one(dict(data))
+            
+    latest = collection.find()
 
     print("\n\n Saved Successfully! \n\n")
     print("\n\n Closing collections! \n\n")
     db.close()
 
-    return collection.find()
+    return latest
 
 
 @crochet.run_in_reactor
