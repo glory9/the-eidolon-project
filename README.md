@@ -8,7 +8,7 @@ A friend asked me to build an app that will study for them while they did someth
 Eidolon scrapes random questions from StackOverflow, saves them to a MongoDB database, and then displays it on a website.
 
 # How I built it
-Built with Pycharm IDE. Pycharm helped with managing virtual environments.
+Built in Pycharm IDE. Pycharm helped with managing virtual environments.
 
 # Challenges I ran into
 - Connecting to MongoDB Atlas
